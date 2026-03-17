@@ -5,6 +5,9 @@ import type { Product, Sale, SystemConfig } from '../types';
 const getBaseUrl = () => {
     if (typeof window !== 'undefined') {
         const hostname = window.location.hostname;
+        if (hostname.includes('onrender.com')) {
+            return 'https://aronium-pos-1aronium-backend.onrender.com/api';
+        }
         return `http://${hostname}:5000/api`;
     }
     return 'http://localhost:5000/api';
